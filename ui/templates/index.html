@@ -1,0 +1,141 @@
+$def with (data)
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="static/js/app.js"></script>
+	<title>Home automation</title>
+</head>
+<body>
+	<div data-role="page" id="main">
+		<div data-role="header">
+			<h1>
+				r0stigs home automation
+			</h1>
+		</div>
+		
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-filer="true">
+				<li><a href="#lights">Lights</a></li>
+				<li><a href="#events">List events</a></li>
+				<li><a href="#events-add">Create new event</a></li>
+				<li><a href="#">Sensors (not implemented)</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="page" id="lights">
+		<div data-role="header">
+			<h1>Lights</h1>
+			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		</div>
+		
+		<div data-role="content">
+			<h1>Lights</h1>
+			$for r in data['devices']:
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>$r[1]</h3>
+					<select name="lights" id="$r[0]" data-role="slider">
+						$if r[3] == 1:
+							<option value="0">Off</option>
+							<option value="1" selected>On</option>
+						$else:
+							<option value="0" selected>Off</option>
+							<option value="1">On</option>
+					</select>
+				</div>
+		</div>
+	</div>
+	<div data-role="page" id="events">
+		<div data-role="header">
+			<h1>Events</h1>
+			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				$for e in data['events']:
+					<li>
+						<a href="#">
+						$if e[2] == 0:
+							OFF
+						$else:
+							ON
+						$e[4] ($data['dt'].fromtimestamp(e[3]))</a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="page" id="events-add">
+		<div data-role="header">
+			<h1>Create new event</h1>
+			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		</div>
+		<form action="/add-event" method="post">
+			<label for="device">Device</label>
+			<select name="device" id="device">
+				$for d in data['devices']:
+					<option value="$d[0]">$d[1]</option>
+			</select>
+			
+			<label for="mode">Mode</label>
+			<select name="mode" id="mode" data-role="slider">
+				<option value="0">Off</option>
+				<option value="1" selected>On</option>
+			</select>
+			<br />
+			
+			<label for="when">When</label>
+			
+			<div data-role="fieldcontain">
+				<select name="day">
+					<option>Day</option>
+					$for d in range(32):
+						$if data['dt'].today().day == d:
+							<option selected>$d</option>
+						$else:
+							<option>$d</option>
+				</select>
+				<select name="month">
+					<option>Month</option>
+					$for m in range(0, 13):
+						$if data['dt'].today().month == m:
+							<option selected>$m</option>
+						$else:
+							<option>$m</option>
+				</select>
+				<select name="year">
+					<option>Year</option>
+					$for y in range(data['dt'].today().year, data['dt'].today().year+2):
+						$if data['dt'].today().year == y:
+							<option selected>$y</option>
+						$else:
+							<option>$y</option>
+				</select>
+			</div>
+			
+			<div data-role="fieldcontain">
+				<select name="hour">
+					<option>Hour</option>
+					$for h in range(24):
+						$if data['dt'].today().hour == h:
+							<option selected>$h</option>
+						$else:
+							<option>$h</option>
+				</select>
+				<select name="minute">
+					<option>Min</option>
+					$for m in range(0, 60, 1):
+						$if data['dt'].today().minute == m:
+							<option selected>$m</option>
+						$else:
+							<option>$m</option>
+				</select>
+			</div>
+			
+			<input type="submit" value="Create" />
+		</form>
+	</div>
+</body>
+</html>

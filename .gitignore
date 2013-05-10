@@ -1,0 +1,3 @@
+config/gcal.cfg
+services/calendar.dat
+*.pyc
