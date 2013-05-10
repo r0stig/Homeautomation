@@ -1,9 +1,12 @@
-import sqlite3, calendar, time
+import sqlite3, calendar, time, ConfigParser
 from datetime import timedelta
+
+config = ConfigParser.ConfigParser()
+config.read('/home/robert/tellstick/config/gcal.cfg')
 
 class DBAL():
 	def __init__(self):
-		self.conn = sqlite3.connect('/home/robert/tellstick/db/temp.db', check_same_thread=False)
+		self.conn = sqlite3.connect(config.get('General', 'database_path', 0), check_same_thread=False)
 		
 	def remove_auto_events(self):
 		cursor = self.conn.cursor()

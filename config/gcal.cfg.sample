@@ -5,3 +5,7 @@ user_agent = HomeAutomationSchedeluer/0.1
 api_key = your api key
 calendar_id = calendar with data
 
+
+[General]
+database_path = absolute path to db
+
