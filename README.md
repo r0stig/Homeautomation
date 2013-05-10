@@ -17,10 +17,10 @@ Open crontab with:
 > $ crontab -e
 
 Add theese two lines, make sure to change the path to the folder below:
-# Fetch modifications in google calender every day at 12:00
-0 12 * * * /usr/bin/python /path_to/services/gcal_fetcher.py
-# Dispatch events every minute
-*/1 * * * * /usr/bin/python /path_to/services/event_dispatcher.py
+> # Fetch modifications in google calender every day at 12:00
+> 0 12 * * * /usr/bin/python /path_to/services/gcal_fetcher.py
+> # Dispatch events every minute
+> */1 * * * * /usr/bin/python /path_to/services/event_dispatcher.py
 
 Services
 --------
