@@ -37,7 +37,7 @@ Source: https://developers.google.com/google-apps/calendar/v3/reference/events/i
 # The client_id and client_secret are copied from the API Access tab on
 # the Google APIs Console
 FLOW = OAuth2WebServerFlow(
-	client_id= config.get('Google calendar', 'client_id', 0) , #'499031026838.apps.googleusercontent.com',
+	client_id= config.get('Google calendar', 'client_id', 0) ,
 	client_secret=config.get('Google calendar', 'client_secret', 0),
 	scope='https://www.googleapis.com/auth/calendar',
 	user_agent=config.get('Google calendar', 'user_agent', 0))

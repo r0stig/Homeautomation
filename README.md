@@ -10,6 +10,24 @@ Installing
 * Cronjobs
 * Services
 
+Dependencies
+============
+* Web.py
+* Telldus tellstick
+* 
+
+Adding devices
+==============
+Linux:
+/etc/tellstick.conf
+Self-learning:
+tdtool --learn device
+Web interface
+=============
+Run
+> $ python ui/code.py
+To start a development server, go to the servers IP port 8080 in the browser (or smartphone).
+
 Cronjobs:
 Fetch modifications in google calender every day at 12:00
 0 12 * * * /usr/bin/python /home/robert/tellstick/services/gcal_fetcher.py
