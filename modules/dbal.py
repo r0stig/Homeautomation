@@ -1,8 +1,9 @@
-import sqlite3, calendar, time, ConfigParser
+import sqlite3, calendar, time, ConfigParser, os, sys
 from datetime import timedelta
 
 config = ConfigParser.ConfigParser()
-config.read('/home/robert/tellstick/config/gcal.cfg')
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../config'))
+config.read(path + '/gcal.cfg')
 
 class DBAL():
 	def __init__(self):

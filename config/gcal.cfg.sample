@@ -8,4 +8,4 @@ calendar_id = calendar with data
 
 [General]
 database_path = absolute path to db
-
+project_path = absolute path to project

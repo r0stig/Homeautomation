@@ -38,6 +38,13 @@ Linux:
 /etc/tellstick.conf
 Self-learning:
 tdtool --learn device
+
+You also need to add the service to the sqlite database:
+> insert into devices(device_id, name, type) VALUES(id, name, type);
+
+Device types:
+0 - lamp
+1 - thermometer sensor
 Web interface
 =============
 Run

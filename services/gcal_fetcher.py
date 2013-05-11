@@ -8,6 +8,7 @@ del path
 import dbal
 import gflags
 import httplib2
+import logging
 
 from apiclient.discovery import build
 from oauth2client.file import Storage
@@ -21,7 +22,10 @@ import pytz, string
 import ConfigParser
 
 config = ConfigParser.ConfigParser()
-config.read('/home/robert/tellstick/config/gcal.cfg')
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../config'))
+config.read(path + '/gcal.cfg')
+
+logging.basicConfig(format='%(asctime)s [%(levelname)s] %(message)s', filename= config.get('General', 'project_path', 0) + 'logs/gcal_fetcher.log',level=logging.DEBUG)
 
 
 FLAGS = gflags.FLAGS
@@ -49,7 +53,8 @@ FLAGS.auth_local_webserver = False
 # If the Credentials don't exist or are invalid, run through the native client
 # flow. The Storage object will ensure that if successful the good
 # Credentials will get written back to a file.
-storage = Storage('calendar.dat')
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '.'))
+storage = Storage(path + '/calendar.dat')
 credentials = storage.get()
 if credentials is None or credentials.invalid == True:
 	credentials = run(FLOW, storage)
@@ -73,6 +78,7 @@ class GCALFetcher():
 		self.dbal = dbal.DBAL()
 		
 	def fetch(self):
+		global logging
 		""" Fetches events from the event calendar """
 		
 		self.dbal.remove_auto_events()
@@ -86,6 +92,7 @@ class GCALFetcher():
 		events = service.events().list(calendarId= self.calID, singleEvents = True, timeMin = str(min).replace(' ', 'T'), timeMax = str(max).replace(' ', 'T')).execute()
 		if events['items']:
 			#print "NUMER IF ITEMS:", len(events['items'])
+			logging.info('Found ' + str(len(events['items'])) + ' events, inserting in database..')
 			for event in events['items']:
 				# format: readable name:deviceId
 				tmp = string.split(event['summary'], ':')
@@ -117,18 +124,12 @@ class GCALFetcher():
 				if end > datetime.today():
 					self.dbal.insert_event(id, 0, 1, end)
 				
-				if event['summary'].find(':6'):
-					print event['start']['dateTime']
-					print event['end']['dateTime']
-					#print type(event["start"])
-					#print event
-					#break
-					
 
 	#calendar = service.calendars().get(calendarId='tho6sjnta0mmpf8kvjsc93fkvs@group.calendar.google.com').execute()
 
 #print calendar['summary']
 #print calendar
 
+logging.info('Starting fetcher')
 f = GCALFetcher()
 f.fetch()
