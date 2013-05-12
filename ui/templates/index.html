@@ -23,7 +23,7 @@ $def with (data)
 				<li><a href="#lights">Lights</a></li>
 				<li><a href="#events">List events</a></li>
 				<li><a href="#events-add">Create new event</a></li>
-				<li><a href="#">Sensors (not implemented)</a></li>
+				<li><a href="#sensors">Sensors</a></li>
 			</ul>
 		</div>
 	</div>
@@ -136,6 +136,20 @@ $def with (data)
 			
 			<input type="submit" value="Create" />
 		</form>
+	</div>
+	<div data-role="page" id="sensors">
+		<div data-role="header">
+			<h1>Sensors</h1>
+			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+		</div>
+		<div class="ui-grid-c">
+			$for sd in data['sensor_data']:
+				<div class="ui-block-a"><b>$sd[2]</b><br />
+					$sd[0]<br />
+					<em>$data['dt'].fromtimestamp(sd[1])</em>
+				</div>
+			
+		</div>
 	</div>
 </body>
 </html>

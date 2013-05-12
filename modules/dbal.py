@@ -1,5 +1,5 @@
 import sqlite3, calendar, time, ConfigParser, os, sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 config = ConfigParser.ConfigParser()
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../config'))
@@ -23,6 +23,23 @@ class DBAL():
 		cursor.close()
 		#calendar.timegm(fire_at.utctimetuple())
 		
+	def insert_sensor_data(self, deviceId, value):
+		cursor = self.conn.cursor()
+		with self.conn:
+			cursor.execute('INSERT INTO sensor_data(device_id, value, timestamp) VALUES(?, ?, ?)', 
+				(deviceId, value, datetime.today().strftime('%s')))
+		cursor.close()
+		
+	def get_last_sensor_data(self):
+		cursor = self.conn.cursor()
+		
+		res = cursor.execute('SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type ' + 
+			'FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ' + 
+			'GROUP BY sensor_data.device_id ORDER BY sensor_data.timestamp DESC')
+		rows = res.fetchall()
+		cursor.close()
+		return rows
+		
 	def get_events(self):
 		cursor = self.conn.cursor()
 		res = cursor.execute('SELECT events.device_id, events.auto, events.type, events.fire_at, devices.name, devices.type FROM events INNER JOIN devices ON devices.device_id = events.device_id ORDER BY events.fire_at ASC')
@@ -41,12 +58,24 @@ class DBAL():
 		cursor.close()
 		return event
 
-	def get_devices(self):
+	def get_devices(self, type = None):
 		cursor = self.conn.cursor()
-		res = cursor.execute('SELECT devices.device_id, devices.name, devices.type, device_status.status FROM devices LEFT JOIN device_status ON device_status.device_id = devices.device_id')
+		if type is not None:
+			res = cursor.execute('SELECT devices.device_id, devices.name, devices.type, device_status.status FROM devices LEFT JOIN device_status ON device_status.device_id = devices.device_id WHERE devices.type = ?', (type,))
+		else:
+			res = cursor.execute('SELECT devices.device_id, devices.name, devices.type, device_status.status FROM devices LEFT JOIN device_status ON device_status.device_id = devices.device_id')
 		rows = res.fetchall()
 		cursor.close()
 		return rows
+		
+	def get_device(self, deviceId):
+		cursor = self.conn.cursor()
+		res = cursor.execute('SELECT devices.device_id, devices.name, devices.type, device_status.status FROM devices ' + 
+			'LEFT JOIN device_status ON device_status.device_id = devices.device_id ' + 
+			'WHERE devices.device_id = ?', (deviceId,))
+		row = res.fetchone()
+		cursor.close()
+		return row
 		
 	def update_device_status(self, deviceId, status):
 		cursor = self.conn.cursor()

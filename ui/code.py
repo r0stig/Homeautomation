@@ -25,7 +25,8 @@ class index:
 	def GET(self):
 		#i = web.input(name=None)
 		#print self.tc.getDevices()
-		return render.index( {'devices': db.get_devices(), 'events': db.get_events(), 'dt': datetime})
+		return render.index( {'devices': db.get_devices(0), 'events': db.get_events(),
+			'sensor_data' : db.get_last_sensor_data(), 'dt': datetime})
 			#render.index
 		
 class chart:

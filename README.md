@@ -9,7 +9,8 @@ Installing
 ==========
 Telldus tellstick
 -----------------
-TODO: Write about installing telldus tellstick
+To install the tellstick using debian/ubuntu, follow this guide:
+http://developer.telldus.com/wiki/TellStickInstallationUbuntu
 Cronjobs
 --------
 First make sure services/gcal_fetcher.py and services/event_dispatcher.py is executeable (chmod +x file).
@@ -51,6 +52,16 @@ Run
 > $ python ui/code.py
 
 To start a development server, go to the servers IP port 8080 in the browser (or smartphone).
+
+Database schema
+================
+CREATE TABLE device_status(id integer primary key, device_id integer, status integer, last_update integer);
+
+CREATE TABLE devices(device_id integer, name text, type integer);
+
+CREATE TABLE events(id integer primary key, device_id integer, auto integer, type integer, fire_at integer);
+
+CREATE TABLE sensor_data(id integer primary key, device_id integer, value text, timestamp integer);
 
 Upcoming features
 =================
