@@ -22,6 +22,8 @@ Add theese two lines, make sure to change the path to the folder below:
     0 12 * * * /usr/bin/python /path_to/services/gcal_fetcher.py
     # Dispatch events every minute
     */1 * * * * /usr/bin/python /path_to/services/event_dispatcher.py
+	# Poll sensor data every 10 minutes
+	*/10 * * * * /usr/bin/python /path_to/services/sensor_poller.py
 
 Services
 --------
