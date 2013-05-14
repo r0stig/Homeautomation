@@ -1,0 +1,134 @@
+http://0.0.0.0:8080/
+Traceback (most recent call last):
+  File "code.py", line 65, in <module>
+    app.run()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/wsgi.py", line 54, in runwsgi
+    return httpserver.runsimple(func, validip(listget(sys.argv, 1, '')))
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+192.168.1.1:55199 - - [14/May/2013 15:18:06] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:55199 - - [14/May/2013 15:18:06] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:55199 - - [14/May/2013 15:18:06] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55199 - - [14/May/2013 15:18:08] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55205 - - [14/May/2013 15:19:05] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55205 - - [14/May/2013 15:19:07] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55205 - - [14/May/2013 15:19:09] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/home/robert/tellstick/ui/code.py", line 34, in GET
+    return render.chart()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 1017, in __getattr__
+    t = self._template(name)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 1014, in _template
+    return self._load_template(name)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 999, in _load_template
+    return Template(open(path).read(), filename=path, **self._keywords)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 846, in __init__
+    code = self.compile_template(text, filename)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 901, in compile_template
+    code = Template.generate_code(template_string, filename, parser=self.create_parser())
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 886, in generate_code
+    rootnode = parser.parse(text, filename)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 79, in parse
+    suite = self.read_suite(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 167, in read_suite
+    section, text = self.read_section(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 118, in read_section
+    return self.readline(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 190, in readline
+    node, line = self.read_node(line)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 216, in read_node
+    return self.read_expr(text, escape=escape)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 354, in read_expr
+    paren_expr()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 292, in paren_expr
+    paren_expr()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 291, in paren_expr
+    if tokens.lookahead().value in parens:
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 332, in lookahead
+    self.items.append(self._next())
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 337, in _next
+    return self.iteritems.next()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 313, in get_tokens
+    for t in tokenize.generate_tokens(readline):
+  File "/usr/lib/python2.7/tokenize.py", line 357, in generate_tokens
+    raise TokenError, ("EOF in multi-line statement", (lnum, 0))
+TokenError: ('EOF in multi-line statement', (2, 0))
+
+192.168.1.1:55554 - - [14/May/2013 15:27:46] "HTTP/1.1 GET /chart" - 500 Internal Server Error
+192.168.1.1:55554 - - [14/May/2013 15:27:47] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 420, in _delegate
+    return handle_class(cls)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/application.py", line 396, in handle_class
+    return tocall(*args)
+  File "/home/robert/tellstick/ui/code.py", line 34, in GET
+    return render.chart()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 1017, in __getattr__
+    t = self._template(name)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 1014, in _template
+    return self._load_template(name)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 999, in _load_template
+    return Template(open(path).read(), filename=path, **self._keywords)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 846, in __init__
+    code = self.compile_template(text, filename)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 901, in compile_template
+    code = Template.generate_code(template_string, filename, parser=self.create_parser())
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 886, in generate_code
+    rootnode = parser.parse(text, filename)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 79, in parse
+    suite = self.read_suite(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 167, in read_suite
+    section, text = self.read_section(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 118, in read_section
+    return self.readline(text)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 190, in readline
+    node, line = self.read_node(line)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 216, in read_node
+    return self.read_expr(text, escape=escape)
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 354, in read_expr
+    paren_expr()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 292, in paren_expr
+    paren_expr()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 291, in paren_expr
+    if tokens.lookahead().value in parens:
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 332, in lookahead
+    self.items.append(self._next())
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 337, in _next
+    return self.iteritems.next()
+  File "/usr/local/lib/python2.7/dist-packages/web.py-0.37-py2.7.egg/web/template.py", line 313, in get_tokens
+    for t in tokenize.generate_tokens(readline):
+  File "/usr/lib/python2.7/tokenize.py", line 357, in generate_tokens
+    raise TokenError, ("EOF in multi-line statement", (lnum, 0))
+TokenError: ('EOF in multi-line statement', (2, 0))
+
+192.168.1.1:55554 - - [14/May/2013 15:27:51] "HTTP/1.1 GET /chart" - 500 Internal Server Error
+192.168.1.1:55554 - - [14/May/2013 15:27:51] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55564 - - [14/May/2013 15:28:12] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:55564 - - [14/May/2013 15:28:13] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 200 
+192.168.1.1:55566 - - [14/May/2013 15:28:13] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 200 
+192.168.1.1:55564 - - [14/May/2013 15:28:13] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55564 - - [14/May/2013 15:28:22] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:55564 - - [14/May/2013 15:28:23] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:55567 - - [14/May/2013 15:28:23] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:55567 - - [14/May/2013 15:28:23] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:55590 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:55590 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:55591 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:55591 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /favicon.ico" - 404 Not Found

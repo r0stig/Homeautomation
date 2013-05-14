@@ -4,7 +4,7 @@ path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules'))
 if not path in sys.path:
     sys.path.insert(1, path)
 del path
-import web, platform, tellstick_comm, dbal, tellstick_comm
+import web, platform, tellstick_comm, dbal, tellstick_comm, time
 from datetime import datetime
 
 
@@ -31,7 +31,16 @@ class index:
 		
 class chart:
 	def GET(self):
-		return render.chart()
+		i = web.input()
+		print i
+		start = None
+		end = None
+		if 'start' in i:
+			start = time.strptime(i.start, "%Y-%m-%dT%H:%M")
+		if 'end' in i:
+			end = time.strptime(i.end, "%Y-%m-%dT%H:%M")
+		
+		return render.chart( {'sensor_data': db.get_sensor_data_for(90, start, end), 'dt': datetime } )
 		
 		
 class lights:

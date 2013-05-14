@@ -146,7 +146,7 @@ $def with (data)
 			$for sd in data['sensor_data']:
 				<div class="ui-block-a"><b>$sd[2]</b><br />
 					$sd[0]<br />
-					<em>$data['dt'].fromtimestamp(sd[1])</em>
+					<em>$data['dt'].utcfromtimestamp(sd[1])</em>
 				</div>
 			
 		</div>

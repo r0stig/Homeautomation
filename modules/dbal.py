@@ -1,4 +1,4 @@
-import sqlite3, calendar, time, ConfigParser, os, sys
+import sqlite3, calendar, time, ConfigParser, os, sys, calendar
 from datetime import timedelta, datetime
 
 config = ConfigParser.ConfigParser()
@@ -27,7 +27,7 @@ class DBAL():
 		cursor = self.conn.cursor()
 		with self.conn:
 			cursor.execute('INSERT INTO sensor_data(device_id, value, timestamp) VALUES(?, ?, ?)', 
-				(deviceId, value, datetime.today().strftime('%s')))
+				(deviceId, value, calendar.timegm(datetime.today().timetuple()))) # datetime.today().strftime('%s')
 		cursor.close()
 		
 	def get_last_sensor_data(self):
@@ -36,6 +36,35 @@ class DBAL():
 		res = cursor.execute('SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type ' + 
 			'FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ' + 
 			'GROUP BY sensor_data.device_id ORDER BY sensor_data.timestamp DESC')
+		rows = res.fetchall()
+		cursor.close()
+		return rows
+		
+	def get_sensor_data_for(self, deviceId, start = None, end = None):
+		cursor = self.conn.cursor()
+		
+		params = ()
+		whereAppend = None
+		if start is not None:
+			whereAppend = 'WHERE sensor_data.timestamp > ? '
+			params = params + (calendar.timegm(start),)
+		if end is not None:
+			if whereAppend is None:
+				whereAppend = ' WHERE '
+			else:
+				whereAppend = whereAppend + ' AND '
+			whereAppend = whereAppend + ' sensor_data.timestamp < ? '
+			params = params + (calendar.timegm(end),)
+			
+		sql = 'SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id '
+		if whereAppend is not None:
+			sql = sql + whereAppend
+		sql = sql + 'ORDER BY sensor_data.timestamp ASC'
+		
+		print sql
+		print whereAppend
+		print params
+		res = cursor.execute(sql, params)#((datetime.today() - timedelta(hours=1)).strftime('%s'),))
 		rows = res.fetchall()
 		cursor.close()
 		return rows

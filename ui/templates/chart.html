@@ -1,24 +1,157 @@
+$def with (data)
 <html>
 <head>
 <script type="text/javascript"
-  src="static/js/dygraph-combined.js"></script>
+  src="static/js/flot/jquery.min.js"></script>
+  <script type="text/javascript" src="static/js/jquery-ui-1.10.3.custom.min.js"></script>
+ <script type="text/javascript"
+  src="static/js/flot/jquery.flot.min.js"></script>
+  <script type="text/javascript" src="static/js/flot/jquery.flot.time.min.js"></script>
+  
+  <link rel="stylesheet" href="static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+  
+  
+  <script type="text/javascript">
+	function pad(n){return n<10 && n.toString().length === 1 ? '0'+n : n}
+	function DateString(d){
+	  return d.getUTCFullYear()+'-'
+		  + pad(d.getUTCMonth()+1)+'-'
+		  + pad(d.getUTCDate())+' '
+		  + pad(d.getUTCHours())+':'
+		  + pad(d.getUTCMinutes())+':'
+		  + pad(d.getUTCSeconds());
+	}
+	jQuery(function() {
+		var data = [];
+		$for r in data['sensor_data']:
+			data.push([new Date("$data['dt'].fromtimestamp(r[1])"), $r[0]]);
+			//
+		//data = [ [new Date("2013-05-12 20:00:00"),2], [new Date("2013-05-12 21:00:00"),2], [new Date("2013-05-12 22:00:00"),2] ];
+			
+		var options = {
+			series: {
+				lines: {
+					show: true
+				},
+				points: {
+					show: true
+				}
+			},
+			grid: {
+				hoverable: true
+			},
+			xaxis: {
+				mode: "time",
+				timeformat: "%Y-%m-%d %H:%M:%S",
+				tickSize: [1, "hour"]
+			}
+		};
+		jQuery.plot(jQuery('#placeholder'), [ data ], options);
+		
+		
+		function showTooltip(x, y, contents) {
+			jQuery("<div id='tooltip'>" + contents + "</div>").css({
+				position: "absolute",
+				display: "none",
+				top: y + 5,
+				left: x + 5,
+				border: "1px solid #fdd",
+				padding: "2px",
+				"background-color": "#fee",
+				opacity: 0.80
+			}).appendTo("body").fadeIn(200);
+		}
+		
+		var previousPoint = null;
+		jQuery("#placeholder").bind("plothover", function (event, pos, item) {
+			var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+			jQuery("#hoverdata").text(str);
+
+			if (item) {
+				if (previousPoint != item.dataIndex) {
+
+					previousPoint = item.dataIndex;
+
+					jQuery("#tooltip").remove();
+					//var x = item.datapoint[0].toFixed(2),
+					//y = item.datapoint[1].toFixed(2);
+					var x = item.datapoint[0],
+					y = item.datapoint[1];
+					
+					//var datestr = new Date(item.datapoint[0]).toLocaleString();
+					var datestr = DateString(new Date(item.datapoint[0]));
+					
+					showTooltip(item.pageX, item.pageY,
+						datestr + ": " + y + 'C');
+				}
+			} else {
+				jQuery("#tooltip").remove();
+				previousPoint = null;
+			}
+		});
+		
+		// UI
+		
+		function slideCallback(event, ui) {
+			var input = jQuery(this).attr('id').substr(0, jQuery(this).attr('id').indexOf('_'));
+			var type = jQuery(this).attr('id').substr(jQuery(this).attr('id').indexOf('_')+1);
+			
+			var oldVal = jQuery('input[name=' + input + ']').val();
+			var oldHour = oldVal.substr(0, 2);
+			var oldMin = oldVal.substr(3);
+			var newHour = oldHour;
+			var newMin = oldMin;
+			
+			if (type === 'hour') {
+				newHour = ui.value;
+			} else if (type === 'min') {
+				newMin = ui.value;
+			}
+			
+			jQuery('input[name=' + input + ']').val( pad(newHour) + ':' + pad(newMin));
+			
+			console.log(this, input, type, event, ui, oldVal, oldHour, oldMin);
+		}
+		jQuery('input[name=startdate], input[name=enddate]').datepicker({'dateFormat': 'yy-mm-dd'});
+		jQuery('#starttime_hour, #endtime_hour').slider({
+			max: 23,
+			slide: slideCallback
+		});
+		jQuery('#starttime_min, #endtime_min').slider({
+			max: 50,
+			step: 10,
+			slide: slideCallback
+		});
+		
+		// Submit UI
+		jQuery('#filter').on('click', function() {
+			window.location = '/chart?start=' + jQuery('input[name=startdate]').val() + 'T' + jQuery('input[name=starttime]').val() + 
+				'&end=' + jQuery('input[name=enddate]').val() + 'T' + jQuery('input[name=endtime]').val();
+		});
+	});
+  </script>
+  <style>
+  #starttime_hour, #endtime_hour, #starttime_min, #endtime_min {
+	width: 200px;
+	}
+  </style>
 </head>
 <body>
-<div id="graphdiv"></div>
-<script type="text/javascript">
-  g = new Dygraph(
-
-    // containing div
-    document.getElementById("graphdiv"),
-
-    // CSV or path to a CSV file.
-    "Date,Temperature\n" +
-    "2013-05-08 20:53,75\n" +
-    "2013-05-08 20:55,70\n" +
-    "2013-05-08 20:57,80\n" + 
-	"2013-05-09 20:00, 81\n"
-
-  );
-</script>
+		
+			
+			
+<div id="placeholder" style="width:1000px;height:450px"></div>
+<h1>Filter</h1>
+<h2>Start</h2>
+Date: <input type="text" name="startdate" /> <input type="text" name="starttime" value="00:00" disabled="disabled" /><br />
+Hour: <div id="starttime_hour"></div>
+Min: <div id="starttime_min"></div>
+<br />
+<h2>End</h2>
+Date: <input type="text" name="enddate" /> <input type="text" name="endtime" value="00:00" disabled="disabled" /><br />
+Hour: <div id="endtime_hour"></div>
+Min: <div id="endtime_min"></div>
+<br />
+<input type="button" id="filter" value="Filter" />
 </body>
 </html>
