@@ -42,12 +42,20 @@ def poll():
 		if((dataTypes.value & TELLSTICK_TEMPERATURE) != 0):
 			success = lib.tdSensorValue(protocol.value, model.value, idvalue.value, TELLSTICK_TEMPERATURE, value, valuelength, byref(timestampvalue))
 			print "Temperature: ", value.value, "C,", datetime.fromtimestamp(timestampvalue.value)
-			if db.get_device(int(idvalue.value)) is not None:
-				db.insert_sensor_data(int(idvalue.value), value.value)
+			
+			device = db.get_device(int(idvalue.value))
+			# type 1 = thermometer, type 2 = thermometer and humidity, both catches degrees
+			if device is not None and (device[2] == 1 or device[2] == 2):
+				db.insert_sensor_data(int(idvalue.value), value.value, datetime.fromtimestamp(timestampvalue.value), 0)
 
 		if((dataTypes.value & TELLSTICK_HUMIDITY) != 0):
 			success = lib.tdSensorValue(protocol.value, model.value, idvalue.value, TELLSTICK_HUMIDITY, value, valuelength, byref(timestampvalue))
 			print "Humidity: ", value.value, "%,", datetime.fromtimestamp(timestampvalue.value)
+			
+			device = db.get_device(int(idvalue.value))
+			#  type 2 = thermometer and humidity
+			if device is not None and device[2] == 2:
+				db.insert_sensor_data(int(idvalue.value), value.value, datetime.fromtimestamp(timestampvalue.value), 1)
 
 	print " "
 lib.tdInit()

@@ -133,7 +133,6 @@ $def with (data)
 							<option>$m</option>
 				</select>
 			</div>
-			
 			<input type="submit" value="Create" />
 		</form>
 	</div>
@@ -143,9 +142,15 @@ $def with (data)
 			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		</div>
 		<div class="ui-grid-c">
-			$for sd in data['sensor_data']:
+			$for sd in data['temp_sensor_data']:
 				<div class="ui-block-a"><b>$sd[2]</b><br />
-					$sd[0]<br />
+					$sd[0] °C<br />
+					<em>$data['dt'].utcfromtimestamp(sd[1])</em>
+				</div>
+				
+			$for sd in data['hum_sensor_data']:
+				<div class="ui-block-a"><b>$sd[2]</b><br />
+					$sd[0] %<br />
 					<em>$data['dt'].utcfromtimestamp(sd[1])</em>
 				</div>
 			

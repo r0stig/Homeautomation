@@ -48,6 +48,7 @@ You also need to add the service to the sqlite database:
 Device types:
 0 - lamp
 1 - thermometer sensor
+2 - thermometer and humidity sensor
 Web interface
 =============
 Run
@@ -63,7 +64,8 @@ CREATE TABLE devices(device_id integer, name text, type integer);
 
 CREATE TABLE events(id integer primary key, device_id integer, auto integer, type integer, fire_at integer);
 
-CREATE TABLE sensor_data(id integer primary key, device_id integer, value text, timestamp integer);
+CREATE TABLE sensor_data(id integer primary key, device_id integer, value text, timestamp integer, type integer);
+
 
 Upcoming features
 =================

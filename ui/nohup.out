@@ -132,3 +132,247 @@ TokenError: ('EOF in multi-line statement', (2, 0))
 192.168.1.1:55590 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
 192.168.1.1:55591 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
 192.168.1.1:55591 - - [14/May/2013 15:29:47] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63986 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:63986 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:63987 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+192.168.1.1:63988 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+ 192.168.1.1:63986 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+192.168.1.1:63987 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+192.168.1.1:63987 - - [15/May/2013 00:29:32] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63987 - - [15/May/2013 00:29:38] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:63987 - - [15/May/2013 00:29:38] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63987 - - [15/May/2013 00:29:39] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63987 - - [15/May/2013 00:29:40] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63987 - - [15/May/2013 00:29:41] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:52467 - - [15/May/2013 00:33:29] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:52467 - - [15/May/2013 00:33:31] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:52467 - - [15/May/2013 00:33:31] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:52467 - - [15/May/2013 00:33:36] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:52468 - - [15/May/2013 00:33:36] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:52468 - - [15/May/2013 00:33:36] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:52467 - - [15/May/2013 00:33:36] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:52468 - - [15/May/2013 00:33:44] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:52467 - - [15/May/2013 00:33:44] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+77.78.104.50:54088 - - [15/May/2013 03:07:11] "HTTP/1.1 HEAD /server-status/" - 404 Not Found
+83.103.192.41:59209 - - [15/May/2013 08:28:37] "HTTP/1.1 GET //wp-login.php" - 404 Not Found
+83.103.192.41:59231 - - [15/May/2013 08:28:37] "HTTP/1.1 GET /blog//wp-login.php" - 404 Not Found
+83.103.192.41:59238 - - [15/May/2013 08:28:37] "HTTP/1.1 GET /wordpress//wp-login.php" - 404 Not Found
+83.103.192.41:59243 - - [15/May/2013 08:28:38] "HTTP/1.1 GET /wp//wp-login.php" - 404 Not Found
+192.168.1.1:64313 - - [15/May/2013 10:51:33] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:64313 - - [15/May/2013 10:51:34] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:64320 - - [15/May/2013 10:51:44] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:64321 - - [15/May/2013 10:51:45] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+192.168.1.1:64325 - - [15/May/2013 10:51:45] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+192.168.1.1:64326 - - [15/May/2013 10:51:45] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+192.168.1.1:64327 - - [15/May/2013 10:51:45] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:64328 - - [15/May/2013 10:51:45] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:64328 - - [15/May/2013 10:51:47] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 304 Not Modified
+192.168.1.1:64327 - - [15/May/2013 10:51:47] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 304 Not Modified
+192.168.1.1:64327 - - [15/May/2013 10:51:50] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:64353 - - [15/May/2013 10:52:03] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" - 304 Not Modified
+192.168.1.1:64354 - - [15/May/2013 10:52:03] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-icons_ffffff_256x240.png" - 304 Not Modified
+192.168.1.1:64355 - - [15/May/2013 10:52:03] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" - 304 Not Modified
+192.168.1.1:64355 - - [15/May/2013 10:52:05] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" - 304 Not Modified
+192.168.1.1:64355 - - [15/May/2013 10:52:08] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" - 200 
+192.168.1.1:64376 - - [15/May/2013 10:52:19] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:64376 - - [15/May/2013 10:52:19] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49332 - - [15/May/2013 11:17:16] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49333 - - [15/May/2013 11:17:16] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49333 - - [15/May/2013 11:17:16] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49612 - - [15/May/2013 11:22:12] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:49612 - - [15/May/2013 11:22:12] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:49612 - - [15/May/2013 11:22:13] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49613 - - [15/May/2013 11:22:13] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49613 - - [15/May/2013 11:22:13] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49612 - - [15/May/2013 11:22:15] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49613 - - [15/May/2013 11:22:15] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49612 - - [15/May/2013 11:22:15] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49614 - - [15/May/2013 11:22:15] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49613 - - [15/May/2013 11:22:15] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49620 - - [15/May/2013 11:23:03] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49621 - - [15/May/2013 11:23:03] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49622 - - [15/May/2013 11:23:03] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49621 - - [15/May/2013 11:23:03] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49620 - - [15/May/2013 11:23:03] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49620 - - [15/May/2013 11:23:09] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49621 - - [15/May/2013 11:23:09] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49621 - - [15/May/2013 11:23:10] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:54305 - - [15/May/2013 12:25:28] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:54305 - - [15/May/2013 12:25:28] "HTTP/1.1 GET /static/js/app.js" - 200 
+192.168.1.1:54305 - - [15/May/2013 12:25:30] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:54309 - - [15/May/2013 12:25:30] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:54309 - - [15/May/2013 12:25:35] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:54305 - - [15/May/2013 12:25:35] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:54305 - - [15/May/2013 12:25:35] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:54309 - - [15/May/2013 12:25:35] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:54328 - - [15/May/2013 12:26:09] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:54328 - - [15/May/2013 12:26:09] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 200 
+192.168.1.1:54328 - - [15/May/2013 12:26:10] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 200 
+192.168.1.1:54329 - - [15/May/2013 12:26:10] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 200 
+192.168.1.1:54330 - - [15/May/2013 12:26:10] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 200 
+192.168.1.1:54331 - - [15/May/2013 12:26:10] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 200 
+192.168.1.1:54328 - - [15/May/2013 12:26:12] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 200 
+192.168.1.1:54328 - - [15/May/2013 12:26:12] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 200 
+192.168.1.1:54328 - - [15/May/2013 12:26:12] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:54331 - - [15/May/2013 12:26:12] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:54347 - - [15/May/2013 12:26:53] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" - 200 
+192.168.1.1:54347 - - [15/May/2013 12:26:53] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" - 200 
+192.168.1.1:49717 - - [15/May/2013 12:26:56] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:49718 - - [15/May/2013 12:26:57] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 200 
+192.168.1.1:49717 - - [15/May/2013 12:26:57] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 200 
+192.168.1.1:49719 - - [15/May/2013 12:26:57] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 200 
+192.168.1.1:49723 - - [15/May/2013 12:26:57] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 200 
+192.168.1.1:49724 - - [15/May/2013 12:26:57] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 200 
+192.168.1.1:49718 - - [15/May/2013 12:26:58] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 200 
+192.168.1.1:49718 - - [15/May/2013 12:27:00] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 200 
+192.168.1.1:49718 - - [15/May/2013 12:27:00] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49717 - - [15/May/2013 12:27:00] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49717 - - [15/May/2013 12:27:00] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49725 - - [15/May/2013 12:27:13] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" - 200 
+192.168.1.1:49725 - - [15/May/2013 12:27:13] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-icons_ffffff_256x240.png" - 200 
+192.168.1.1:49726 - - [15/May/2013 12:27:13] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" - 200 
+192.168.1.1:49243 - - [15/May/2013 13:45:00] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:49243 - - [15/May/2013 13:45:06] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49248 - - [15/May/2013 13:45:06] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49906 - - [15/May/2013 14:54:21] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49905 - - [15/May/2013 14:54:21] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49905 - - [15/May/2013 14:54:21] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:49910 - - [15/May/2013 15:03:33] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 304 Not Modified
+192.168.1.1:49910 - - [15/May/2013 15:03:34] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:49911 - - [15/May/2013 15:03:34] "HTTP/1.1 GET /apple-touch-icon-precomposed.png" - 404 Not Found
+192.168.1.1:49911 - - [15/May/2013 15:03:34] "HTTP/1.1 GET /apple-touch-icon.png" - 404 Not Found
+192.168.1.1:51198 - - [15/May/2013 15:37:10] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:51198 - - [15/May/2013 15:37:10] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:51198 - - [15/May/2013 15:37:12] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:51198 - - [15/May/2013 15:37:13] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:51198 - - [15/May/2013 15:37:14] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:51198 - - [15/May/2013 15:37:17] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:53794 - - [15/May/2013 17:51:48] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:53794 - - [15/May/2013 17:51:48] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:53794 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:53794 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:53802 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+192.168.1.1:53804 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+ 192.168.1.1:53805 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified192.168.1.1:53806 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+
+192.168.1.1:53806 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 200 192.168.1.1:53805 - - [15/May/2013 17:51:53] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 200 
+
+192.168.1.1:53806 - - [15/May/2013 17:51:54] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:53806 - - [15/May/2013 17:51:56] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png" - 200 
+192.168.1.1:53805 - - [15/May/2013 17:51:56] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png" - 200 192.168.1.1:53806 - - [15/May/2013 17:51:56] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-icons_ffffff_256x240.png" - 200 
+
+192.168.1.1:53806 - - [15/May/2013 17:51:57] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png" - 200 
+192.168.1.1:53806 - - [15/May/2013 17:52:01] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png" - 200 
+192.168.1.1:53806 - - [15/May/2013 17:52:09] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:53806 - - [15/May/2013 17:52:10] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:53997 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:53997 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:53998 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:53999 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+ 192.168.1.1:54000 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+192.168.1.1:54000 - - [15/May/2013 18:00:12] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:59433 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:59437 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified192.168.1.1:59433 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+ 192.168.1.1:59434 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+ 192.168.1.1:59436 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified192.168.1.1:59435 - - [15/May/2013 21:37:41] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+
+
+192.168.1.1:59433 - - [15/May/2013 21:37:42] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 304 Not Modified
+192.168.1.1:59436 - - [15/May/2013 21:37:42] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 304 Not Modified
+192.168.1.1:59433 - - [15/May/2013 21:37:42] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:61491 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:61491 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:61492 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+192.168.1.1:61493 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:61491 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+ 192.168.1.1:61494 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+192.168.1.1:61494 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png" - 304 Not Modified192.168.1.1:61491 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /static/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png" - 304 Not Modified
+
+192.168.1.1:61491 - - [15/May/2013 22:48:35] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:62188 - - [15/May/2013 23:18:09] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:62188 - - [15/May/2013 23:18:09] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+http://0.0.0.0:3000/
+<Storage {'start': u'2013-05-14T17:00', 'end': u'2013-05-14T23:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368550800, 1368572400)
+<Storage {}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ORDER BY sensor_data.timestamp ASC
+None
+()
+<Storage {'start': u'2013-05-14T23:00', 'end': u'2013-05-15T10:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368572400, 1368612000)
+<Storage {}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ORDER BY sensor_data.timestamp ASC
+None
+()
+<Storage {}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ORDER BY sensor_data.timestamp ASC
+None
+()
+<Storage {}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ORDER BY sensor_data.timestamp ASC
+None
+()
+<Storage {}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ORDER BY sensor_data.timestamp ASC
+None
+()
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368619200, 1368658800)
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368619200, 1368658800)
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368619200, 1368658800)
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:00'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368619200, 1368658800)
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:59'}>
+SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? ORDER BY sensor_data.timestamp ASC
+WHERE sensor_data.timestamp > ?  AND  sensor_data.timestamp < ? 
+(1368619200, 1368662340)
+<Storage {'start': u'2013-05-15T12:00', 'end': u'2013-05-15T23:59'}>
+SELECT sensor_data.value, sensor_dat192.168.1.1:62883 - - [15/May/2013 23:47:56] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:62883 - - [15/May/2013 23:47:56] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+192.168.1.1:62884 - - [15/May/2013 23:47:56] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+192.168.1.1:62884 - - [15/May/2013 23:47:57] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63536 - - [16/May/2013 10:45:52] "HTTP/1.1 GET /chart" - 200 OK
+192.168.1.1:63536 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /static/js/flot/jquery.min.js" - 304 Not Modified
+192.168.1.1:63537 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /static/js/flot/jquery.flot.min.js" - 304 Not Modified
+192.168.1.1:63538 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /static/js/flot/jquery.flot.time.min.js" - 304 Not Modified
+ 192.168.1.1:63539 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /static/js/jquery-ui-1.10.3.custom.min.js" - 304 Not Modified
+192.168.1.1:63541 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /static/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" - 304 Not Modified
+192.168.1.1:63541 - - [16/May/2013 10:45:53] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:55:51] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:63895 - - [16/May/2013 10:55:51] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:63895 - - [16/May/2013 10:55:51] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:55:53] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:55:58] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:55:59] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:56:02] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63895 - - [16/May/2013 10:56:04] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63896 - - [16/May/2013 10:56:14] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63896 - - [16/May/2013 10:56:15] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63896 - - [16/May/2013 10:56:16] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63896 - - [16/May/2013 10:56:22] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63917 - - [16/May/2013 10:59:29] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:63917 - - [16/May/2013 10:59:29] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:63917 - - [16/May/2013 10:59:29] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63917 - - [16/May/2013 10:59:33] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63917 - - [16/May/2013 10:59:34] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63917 - - [16/May/2013 10:59:35] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63917 - - [16/May/2013 10:59:39] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63926 - - [16/May/2013 11:00:05] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63926 - - [16/May/2013 11:00:06] "HTTP/1.1 GET /" - 200 OK
+192.168.1.1:63926 - - [16/May/2013 11:00:06] "HTTP/1.1 GET /static/js/app.js" - 304 Not Modified
+192.168.1.1:63926 - - [16/May/2013 11:00:06] "HTTP/1.1 GET /favicon.ico" - 404 Not Found
+192.168.1.1:63926 - - [16/May/2013 11:00:13] "HTTP/1.1 GET /favicon.ico" - 404 Not Found

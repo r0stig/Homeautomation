@@ -23,42 +23,39 @@ class DBAL():
 		cursor.close()
 		#calendar.timegm(fire_at.utctimetuple())
 		
-	def insert_sensor_data(self, deviceId, value):
+	def insert_sensor_data(self, deviceId, value, when, type = 0):
 		cursor = self.conn.cursor()
 		with self.conn:
-			cursor.execute('INSERT INTO sensor_data(device_id, value, timestamp) VALUES(?, ?, ?)', 
-				(deviceId, value, calendar.timegm(datetime.today().timetuple()))) # datetime.today().strftime('%s')
+			cursor.execute('INSERT INTO sensor_data(device_id, value, timestamp, type) VALUES(?, ?, ?, ?)', 
+				(deviceId, value, calendar.timegm(when.timetuple()), type)) # datetime.today().strftime('%s') calendar.timegm(datetime.today().timetuple())
 		cursor.close()
 		
-	def get_last_sensor_data(self):
+	def get_last_sensor_data(self, type = 0):
 		cursor = self.conn.cursor()
 		
 		res = cursor.execute('SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type ' + 
 			'FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id ' + 
-			'GROUP BY sensor_data.device_id ORDER BY sensor_data.timestamp DESC')
+			'WHERE sensor_data.type = ? ' + 
+			'GROUP BY sensor_data.device_id ORDER BY sensor_data.timestamp DESC', (type,))
 		rows = res.fetchall()
 		cursor.close()
 		return rows
 		
-	def get_sensor_data_for(self, deviceId, start = None, end = None):
+	def get_sensor_data_for(self, deviceId, type = 0, start = None, end = None):
 		cursor = self.conn.cursor()
 		
-		params = ()
+		params = (type,)
 		whereAppend = None
 		if start is not None:
-			whereAppend = 'WHERE sensor_data.timestamp > ? '
+			whereAppend = 'AND sensor_data.timestamp > ? '
 			params = params + (calendar.timegm(start),)
 		if end is not None:
-			if whereAppend is None:
-				whereAppend = ' WHERE '
-			else:
-				whereAppend = whereAppend + ' AND '
-			whereAppend = whereAppend + ' sensor_data.timestamp < ? '
+			whereAppend = whereAppend + ' AND sensor_data.timestamp < ? '
 			params = params + (calendar.timegm(end),)
 			
 		sql = 'SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id '
 		if whereAppend is not None:
-			sql = sql + whereAppend
+			sql = sql + ' WHERE type = ? ' + whereAppend
 		sql = sql + 'ORDER BY sensor_data.timestamp ASC'
 		
 		print sql
