@@ -54,8 +54,9 @@ class DBAL():
 			params = params + (calendar.timegm(end),)
 			
 		sql = 'SELECT sensor_data.value, sensor_data.timestamp, devices.name, devices.type FROM sensor_data INNER JOIN devices ON sensor_data.device_id = devices.device_id '
+		sql = sql + ' WHERE sensor_data.type = ? '
 		if whereAppend is not None:
-			sql = sql + ' WHERE type = ? ' + whereAppend
+			sql = sql + whereAppend
 		sql = sql + 'ORDER BY sensor_data.timestamp ASC'
 		
 		print sql

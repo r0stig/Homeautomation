@@ -41,7 +41,7 @@ class chart:
 		if 'end' in i:
 			end = time.strptime(i.end, "%Y-%m-%dT%H:%M")
 		
-		return render.chart( {'sensor_data': db.get_sensor_data_for(90, start, end), 'dt': datetime } )
+		return render.chart( {'sensor_data': db.get_sensor_data_for(90, 0, start, end), 'dt': datetime } )
 		
 		
 class lights:
