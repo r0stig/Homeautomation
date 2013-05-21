@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # Append module path
 import os, sys
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules'))
@@ -6,7 +7,6 @@ if not path in sys.path:
 del path
 import web, platform, tellstick_comm, dbal, tellstick_comm, time
 from datetime import datetime
-
 
 db = dbal.DBAL()
 render = web.template.render('templates/')
@@ -17,7 +17,6 @@ urls = (
 	'/chart', 'chart',
 	'/add-event', 'events'
 )
-
 
 class index:
 	
@@ -67,10 +66,11 @@ class events:
 		db.insert_event(i.device, i.mode, 0, datetime(int(i.year), int(i.month), int(i.day), int(i.hour), int(i.minute)))
 		
 		#raise web.seeother('/#events')
-		
-		
+
+# uWSGI dosen't run in the __name__ == "__main__", therefore theese lays here:
+app = web.application(urls, globals())
+application = app.wsgifunc()
 		
 if __name__ == "__main__":
-	app = web.application(urls, globals())
+	#application = app.wsgifunc()
 	app.run()
-	

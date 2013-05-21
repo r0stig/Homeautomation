@@ -56,6 +56,56 @@ Run
 
 To start a development server, go to the servers IP port 8080 in the browser (or smartphone).
 
+
+Using Nginx on Ubuntu (or other debian-based dist)
+--------------------------------------------------
+sudo apt-get install nginx-full uwsgi uwsgi-plugin-python
+
+File /etc/nginx/sites-enabled/default:
+server {
+        listen 3000;
+
+        root /path_to_project/ui;
+        index index.html index.htm;
+
+        server_name 0.0.0.0;
+        access_log /var/log/nginx/default_access.log;
+        error_log /var/log/nginx/default_error.log;
+
+        location / {
+                include uwsgi_params;
+
+                uwsgi_pass unix://tmp/uwsgi_vhosts.sock;
+                uwsgi_param UWSGI_CHDIR /path_to_project/ui;
+                uwsgi_param UWSGI_PYHOME /path_to_project/ui;
+                uwsgi_param UWSGI_SCRIPT code;
+        }
+
+        location /static {
+                alias /path_to_project/ui/static;
+        }
+}
+
+File /etc/uwsgi/apps-enabled/vhosts.ini
+[uwsgi]
+plugins = python
+gid = www-data
+uid = www-data
+vhost = true
+logdate
+socket = /tmp/uwsgi_vhosts.sock
+master = true
+processes = 1
+harakiri = 20
+limit-as = 128
+memory-report
+no-orphans
+
+Permissions:
+* code.py should be executeable by www-data
+* db/ and db/temp.db should be read and writeable by www-data
+
+
 Database schema
 ================
 CREATE TABLE device_status(id integer primary key, device_id integer, status integer, last_update integer);
