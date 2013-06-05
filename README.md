@@ -11,6 +11,10 @@ Telldus tellstick
 -----------------
 To install the tellstick using debian/ubuntu, follow this guide:
 http://developer.telldus.com/wiki/TellStickInstallationUbuntu
+
+To install the tellstick on Raspberry PI with Raspbian, follow the following instructions:
+http://www.telldus.com/forum/viewtopic.php?p=13857#p13857
+
 Cronjobs
 --------
 First make sure services/gcal_fetcher.py and services/event_dispatcher.py is executeable (chmod +x file).
@@ -34,6 +38,8 @@ Dependencies
 * Python
 * Web.py
 * Telldus tellstick
+* Pytz
+* google-api-python-client: https://developers.google.com/google-apps/calendar/setup
 
 Adding devices
 ==============
@@ -105,7 +111,7 @@ Permissions:
 * code.py should be executeable by www-data
 * db/ and db/temp.db should be read and writeable by www-data
 
-
+More info: https://library.linode.com/web-servers/nginx/python-uwsgi/ubuntu-12.04-precise-pangolin
 Database schema
 ================
 CREATE TABLE device_status(id integer primary key, device_id integer, status integer, last_update integer);
