@@ -57,14 +57,17 @@
 		</div>
 		<div data-role="content">
 			<ul data-role="listview">
-				$for e in data['events']:
+				{% for e in events %}
 					<li>
 						<a href="#">
-						$if e[2] == 0:
+						{% if e[2] == 0 %}
 							OFF
-						$else:
+						{% else %}
 							ON
-						$e[4] ($data['dt'].fromtimestamp(e[3]))</a></li>
+						{% endif %}
+						{{ e[4] }} {{ dt.fromtimestamp(e[3]) }}
+						</a></li>
+				{% endfor %}
 			</ul>
 		</div>
 	</div>

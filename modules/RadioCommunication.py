@@ -4,5 +4,5 @@ class RadioCommunication:
 	def turnOn(self, id):
 		print "turnOn ", id
 
-	def turnOnn(self, id):
+	def turnOff(self, id):
 		print "turnOff ", id

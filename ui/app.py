@@ -10,19 +10,13 @@ from flask import Flask, render_template, request
 from datetime import datetime
 
 app = Flask(__name__)
-application = app
 db = dbal.DBAL()
-
-urls = (
-	'/', 'index',
-	'/lights', 'lights',
-	'/chart', 'chart',
-	'/add-event', 'events'
-)
 
 @app.route('/')
 def index():
-	return render_template('index.html', devices = db.get_devices(0), events={}, temp_sensor_data={}, hum_sensor_data={}, dt=datetime)
+	return render_template('index.html', devices = db.get_devices(0), 
+		events=db.get_events(), temp_sensor_data={}, 
+		hum_sensor_data={}, dt=datetime)
 
 class chart:
 	def GET(self):
@@ -40,7 +34,6 @@ class chart:
 @app.route('/lights', methods=['POST'])	
 def lights():
 	tc = RadioCommunication.RadioCommunication() #tellstick_comm.tellstick_comm()
-	#i = web.input()
 	device_id = request.form['light'] #i.light
 	mode = request.form['mode'] #i.mode
 	r = None
@@ -50,21 +43,14 @@ def lights():
 	else:
 		tc.turnOff(device_id)
 	return (request.form['light'], r)
-	#return (i.light, r)
-	#raise web.seeother('/')
-		
-class events:
-	def POST(self):
-		i = web.input()
-		
-		db.insert_event(i.device, i.mode, 0, datetime(int(i.year), int(i.month), int(i.day), int(i.hour), int(i.minute)))
-		
-		#raise web.seeother('/#events')
 
-# uWSGI dosen't run in the __name__ == "__main__", therefore theese lays here:
-
-#app = web.application(urls, globals())
-#application = app.wsgifunc()
+@app.route('/add-event', methods=['POST'])
+def POST(self):
+	
+	db.insert_event(request.form['device'], request.form['mode'], 0, 
+		datetime(int(request.form['year']), int(request.form['month']), 
+			int(request.form['day']), int(request.form['hour']), 
+			int(request.form['minute'])))
 		
 if __name__ == "__main__":
 	#application = app.wsgifunc()
