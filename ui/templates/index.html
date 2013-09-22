@@ -1,4 +1,3 @@
-$def with (data)
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,18 +34,20 @@ $def with (data)
 		
 		<div data-role="content">
 			<h1>Lights</h1>
-			$for r in data['devices']:
+			{% for d in devices %}
 				<div data-role="collapsible" data-collapsed="true">
-					<h3>$r[1]</h3>
-					<select name="lights" id="$r[0]" data-role="slider">
-						$if r[3] == 1:
+					<h3>{{ d[1] }}</h3>
+					<select name="lights" id="{{ d[0] }}" data-role="slider">
+						{% if d[3] == 1 %}
 							<option value="0">Off</option>
 							<option value="1" selected>On</option>
-						$else:
+						{% else %}
 							<option value="0" selected>Off</option>
 							<option value="1">On</option>
+						{% endif %}
 					</select>
 				</div>
+			{% endfor %}
 		</div>
 	</div>
 	<div data-role="page" id="events">
