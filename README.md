@@ -36,7 +36,7 @@ TODO: Write about running services
 Dependencies
 ============
 * Python
-* Web.py
+* Flask
 * Telldus tellstick
 * Pytz
 * google-api-python-client: https://developers.google.com/google-apps/calendar/setup
@@ -58,9 +58,9 @@ Device types:
 Web interface
 =============
 Run
-> $ python ui/code.py
+> $ python ui/app.py
 
-To start a development server, go to the servers IP port 8080 in the browser (or smartphone).
+To start a development server, go to the servers IP port 5000 in the browser (or smartphone).
 
 
 Using Nginx on Ubuntu (or other debian-based dist)
