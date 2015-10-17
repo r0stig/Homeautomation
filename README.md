@@ -126,3 +126,16 @@ CREATE TABLE sensor_data(id integer primary key, device_id integer, value text, 
 Upcoming features
 =================
 * Show temperature graphs for logged temperature data
+
+
+Migrations (until automated way of doing this..)
+===========
+ALTER TABLE events ADD COLUMN sunrise integer;
+ALTER TABLE events ADD COLUMN sunset integer;
+ALTER TABLE events ADD COLUMN mo integer;
+ALTER TABLE events ADD COLUMN tu integer;
+ALTER TABLE events ADD COLUMN we integer;
+ALTER TABLE events ADD COLUMN th integer;
+ALTER TABLE events ADD COLUMN fr integer;
+ALTER TABLE events ADD COLUMN sa integer;
+ALTER TABLE events ADD COLUMN su integer;
