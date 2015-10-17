@@ -62,12 +62,24 @@ def lights():
 	return (request.form['light'], r)
 
 @app.route('/add-event', methods=['POST'])
-def POST(self):
+def POST():
 	
 	db.insert_event(request.form['device'], request.form['mode'], 0, 
-		datetime(int(request.form['year']), int(request.form['month']), 
-			int(request.form['day']), int(request.form['hour']), 
-			int(request.form['minute'])))
+		datetime(
+			int(request.form['year']), 
+			int(request.form['month']), 
+			int(request.form['day']), 
+			int(request.form['hour']), 
+			int(request.form['minute'])), 
+			'sunset' in request.form, 
+			'sunrise' in request.form,
+			'mo' in request.form,
+			'tu' in request.form,
+			'we' in request.form,
+			'th' in request.form,
+			'fr' in request.form,
+			'sa' in request.form,
+			'su' in request.form)
 		
 if __name__ == "__main__":
 	#application = app.wsgifunc()

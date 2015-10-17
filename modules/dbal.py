@@ -15,11 +15,12 @@ class DBAL():
 			cursor.execute('DELETE FROM events WHERE auto = 1')
 		cursor.close()
 		
-	def insert_event(self, deviceId, type, auto, fire_at):
+	def insert_event(self, deviceId, type, auto, fire_at, sunset, sunrise, mo, tu, we, th, fr, sa, su):
 		cursor = self.conn.cursor()
 		with self.conn:
-			cursor.execute('INSERT INTO events(device_id, type, fire_at, auto) VALUES(?, ?, ?, ?)', 
-				(deviceId, type, int(fire_at.strftime('%s')) , auto))
+			cursor.execute('INSERT INTO events(device_id, type, fire_at, auto, sunset, sunrise, mo, tu, we, th, fr, sa, su)' + 
+				' VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
+				(deviceId, type, int(fire_at.strftime('%s')) , auto, sunset, sunrise, mo, tu, we, th, fr, sa, su))
 		cursor.close()
 		#calendar.timegm(fire_at.utctimetuple())
 		
