@@ -5,10 +5,9 @@ path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules'))
 if not path in sys.path:
     sys.path.insert(1, path)
 del path
-import platform, tellstick_comm, dbal, tellstick_comm, time, RadioCommunication
+import platform, tellstick_comm, dbal, tellstick_comm, time, RadioCommunication, SunPosition
 from flask import Flask, render_template, request
 from datetime import datetime, date
-from astral import *
 from pytz import timezone
 
 app = Flask(__name__)
@@ -16,24 +15,10 @@ db = dbal.DBAL()
 
 @app.route('/')
 def index():
-	a = Astral()
-	gothenburg_latitude = 57.7136505
-	gothenburg_longitude =  11.9957975
-	location = a
-	print date.today()
-	print a.sunrise_utc(date.today(), gothenburg_latitude, gothenburg_longitude)
-	print a.sunset_utc(date.today(), gothenburg_latitude, gothenburg_longitude)
-	sunset_datetime = a.sunset_utc(date.today(), gothenburg_latitude, gothenburg_longitude)
-	sunrise_datetime = a.sunrise_utc(date.today(), gothenburg_latitude, gothenburg_longitude)
-
-
-	sunrise_datetime = sunrise_datetime.astimezone(timezone('Europe/Stockholm'))
-	sunset_datetime = sunset_datetime.astimezone(timezone('Europe/Stockholm'))
-
 	return render_template('index.html', devices = db.get_devices(0), 
 		events=db.get_events(), temp_sensor_data={}, 
-		hum_sensor_data={}, dt=datetime, sunset=sunset_datetime,
-		sunrise=sunrise_datetime)
+		hum_sensor_data={}, dt=datetime, sunset=SunPosition.get_today_sunset(),
+		sunrise=SunPosition.get_today_sunrise())
 
 class chart:
 	def GET(self):
