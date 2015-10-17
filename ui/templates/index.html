@@ -13,7 +13,7 @@
 	<div data-role="page" id="main">
 		<div data-role="header">
 			<h1>
-				r0stigs home automation
+				r0stig's home automation
 			</h1>
 		</div>
 		
@@ -79,8 +79,9 @@
 		<form action="/add-event" method="post">
 			<label for="device">Device</label>
 			<select name="device" id="device">
-				$for d in data['devices']:
-					<option value="$d[0]">$d[1]</option>
+				{% for d in devices %}
+					<option value="{{ d[0] }}">{{ d[1] }}</option>
+				{% endfor %}
 			</select>
 			
 			<label for="mode">Mode</label>
@@ -95,46 +96,56 @@
 			<div data-role="fieldcontain">
 				<select name="day">
 					<option>Day</option>
-					$for d in range(32):
-						$if data['dt'].today().day == d:
-							<option selected>$d</option>
-						$else:
-							<option>$d</option>
+					{% for d in range(32) %}
+						{% if dt.today().day == d %}
+							<option selected>{{ d }}</option>
+						{% else %}
+							<option>{{ d }}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 				<select name="month">
 					<option>Month</option>
-					$for m in range(0, 13):
-						$if data['dt'].today().month == m:
-							<option selected>$m</option>
-						$else:
-							<option>$m</option>
+					{% for m in range(0, 13) %}
+						{% if dt.today().month == m %}
+							<option selected>{{ m }}</option>
+						{% else %}
+							<option>{{ m }}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 				<select name="year">
 					<option>Year</option>
-					$for y in range(data['dt'].today().year, data['dt'].today().year+2):
-						$if data['dt'].today().year == y:
-							<option selected>$y</option>
-						$else:
-							<option>$y</option>
+					{% for y in range(dt.today().year, dt.today().year+2) %}
+						{% if dt.today().year == y %}
+							<option selected>{{ y }}</option>
+						{% else %}
+							<option>{{ y }}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 			</div>
 			
 			<div data-role="fieldcontain">
 				<select name="hour">
 					<option>Hour</option>
-					$for h in range(24):
-						$if data['dt'].today().hour == h:
-							<option selected>$h</option>
-						$else:
-							<option>$h</option>
+					{% for h in range(24) %}
+						{% if dt.today().hour == h %}
+							<option selected>{{ h }}</option>
+						{% else %}
+							<option>{{ h }}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 				<select name="minute">
 					<option>Min</option>
-					$for m in range(0, 60, 1):
-						$if data['dt'].today().minute == m:
-							<option selected>$m</option>
-						$else:
-							<option>$m</option>
+					{% for m in range(0, 60, 1) %}
+						{% if dt.today().minute == m %}
+							<option selected>{{ m }}</option>
+						{% else %}
+							<option>{{ m }}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 			</div>
 			<input type="submit" value="Create" />
@@ -146,17 +157,19 @@
 			<a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 		</div>
 		<div class="ui-grid-c">
-			$for sd in data['temp_sensor_data']:
-				<div class="ui-block-a"><b>$sd[2]</b><br />
-					$sd[0] °C<br />
-					<em>$data['dt'].utcfromtimestamp(sd[1])</em>
+			{% for sd in temp_sensor_data %}
+				<div class="ui-block-a"><b>{{ sd[2] }}</b><br />
+					{{ sd[0] }} °C<br />
+					<em>{{ dt.utcfromtimestamp(sd[1]) }}</em>
 				</div>
-				
-			$for sd in data['hum_sensor_data']:
-				<div class="ui-block-a"><b>$sd[2]</b><br />
-					$sd[0] %<br />
-					<em>$data['dt'].utcfromtimestamp(sd[1])</em>
-				</div>
+			{% endfor %}
+
+            {% for sd in hum_sensor_data %}
+                <div class="ui-block-a"><b>{{ sd[2] }}</b><br />
+                    {{ sd[0] }} %<br />
+                    <em>{{ dt.utcfromtimestamp(sd[1]) }}</em>
+                </div>
+            {% endfor %}
 			
 		</div>
 	</div>
