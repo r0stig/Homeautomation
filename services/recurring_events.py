@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os, sys
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules'))
 if not path in sys.path:
