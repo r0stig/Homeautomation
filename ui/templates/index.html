@@ -66,6 +66,9 @@
 							ON
 						{% endif %}
 						{{ e[4] }} {{ dt.fromtimestamp(e[3]) }}
+						{% if e[6] or e[7] or e[8] or e[9] or e[10] or e[11] or e[12] %}
+							(repeated)
+						{% endif %}
 						</a></li>
 				{% endfor %}
 			</ul>
@@ -97,7 +100,7 @@
 				Sunrise (today {{sunrise}})
 			</label>
 			<label>
-				<input type="checkbox" name="sundown" value="on">
+				<input type="checkbox" name="sunset" value="on">
 				Sunset (today {{sunset}})
 			</label>
 			
