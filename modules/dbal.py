@@ -1,4 +1,9 @@
-import sqlite3, calendar, time, ConfigParser, os, sys, calendar
+import os, sys
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../modules'))
+if not path in sys.path:
+    sys.path.insert(1, path)
+del path
+import sqlite3, calendar, time, ConfigParser, os, sys, calendar, SunPosition
 from datetime import timedelta, datetime
 
 config = ConfigParser.ConfigParser()
@@ -8,6 +13,7 @@ config.read(path + '/gcal.cfg')
 class DBAL():
 	def __init__(self):
 		self.conn = sqlite3.connect(config.get('General', 'database_path', 0), check_same_thread=False)
+		self.conn.row_factory = sqlite3.Row
 		
 	def remove_auto_events(self):
 		cursor = self.conn.cursor()
@@ -15,7 +21,7 @@ class DBAL():
 			cursor.execute('DELETE FROM events WHERE auto = 1')
 		cursor.close()
 		
-	def insert_event(self, deviceId, type, auto, fire_at, sunset, sunrise, mo, tu, we, th, fr, sa, su):
+	def insert_event(self, deviceId, type, auto, fire_at, sunset=0, sunrise=0, mo=0, tu=0, we=0, th=0, fr=0, sa=0, su=0):
 		cursor = self.conn.cursor()
 		with self.conn:
 			cursor.execute('INSERT INTO events(device_id, type, fire_at, auto, sunset, sunrise, mo, tu, we, th, fr, sa, su)' + 
@@ -70,7 +76,9 @@ class DBAL():
 		
 	def get_events(self):
 		cursor = self.conn.cursor()
-		res = cursor.execute('SELECT events.device_id, events.auto, events.type, events.fire_at, devices.name, devices.type FROM events INNER JOIN devices ON devices.device_id = events.device_id ORDER BY events.fire_at ASC')
+		res = cursor.execute('SELECT events.device_id, events.auto, events.type, events.fire_at, events.sunrise, events.sunset, ' +
+			'events.mo, events.tu, events.we, events.tu, events.fr, events.sa, events.su, ' +  
+			' devices.name, devices.type FROM events INNER JOIN devices ON devices.device_id = events.device_id ORDER BY events.fire_at ASC')
 		rows = res.fetchall()
 		cursor.close()
 		return rows
@@ -85,6 +93,43 @@ class DBAL():
 				cursor.execute('DELETE FROM events WHERE id = ?', (event[0],))
 		cursor.close()
 		return event
+
+	def get_recurring_events(self):
+		""" Gets recurring events that should be dispatched.. """
+		cursor = self.conn.cursor()
+
+		sql = '''SELECT events.id, events.device_id, events.auto, events.type, events.sunrise, events.sunset FROM events  
+			WHERE (events.sunrise = 1 or events.sunset = 1) '''
+		# INNER JOIN devices ON devices.device_id = events.device_id
+		whereAppend = ""
+		wd = datetime.today().weekday()
+		whereAppend = whereAppend + ' AND ' + self.get_column_from_weekday(wd) + ' = 1'
+
+		sql = sql + whereAppend
+
+		res = cursor.execute(sql)
+		rows = res.fetchall()
+		cursor.close()
+		return rows
+
+
+	def get_column_from_weekday(self, wk):
+		if wk == 0:
+			return 'mo'
+		elif wk == 1:
+			return 'tu'
+		elif wk == 2:
+			return 'we'
+		elif wk == 3:
+			return 'th'
+		elif wk == 4:
+			return 'fr'
+		elif wk == 5:
+			return 'sa'
+		elif wk == 6:
+			return 'su'
+		return 'none'
+
 
 	def get_devices(self, type = None):
 		cursor = self.conn.cursor()
