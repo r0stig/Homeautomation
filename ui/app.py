@@ -35,7 +35,10 @@ class chart:
 
 @app.route('/lights', methods=['POST'])	
 def lights():
-	tc = RadioCommunication.RadioCommunication() #tellstick_comm.tellstick_comm()
+	# Development
+	#tc = RadioCommunication.RadioCommunication() #tellstick_comm.tellstick_comm()
+	# Production	
+	tc = tellstick_comm.tellstick_comm();
 	device_id = request.form['light'] #i.light
 	mode = request.form['mode'] #i.mode
 	r = None
