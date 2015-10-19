@@ -89,7 +89,7 @@ class DBAL():
 		res = cursor.execute('''SELECT events.id, events.device_id, events.auto, events.type, events.fire_at, devices.name, devices.type 
 			FROM events INNER JOIN devices ON devices.device_id = events.device_id WHERE 
 			(events.mo = 0 and events.tu = 0 and events.we = 0 and events.tu = 0 and events.fr = 0 and events.sa = 0 and events.su = 0) 
-			events.fire_at <= ?''', (time.time(),))
+			AND events.fire_at <= ?''', (time.time(),))
 		event = res.fetchone()
 		if event is not None:
 			with self.conn:
